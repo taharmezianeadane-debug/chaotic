@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* pour que padding et border soient inclus dans la largeur */
+}
+
+body {
+    display: flex;
+    background-image: url(SL-091920-35320-15.jpg);
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* occupe toute la hauteur de l'écran */
+    font-family: Arial, sans-serif;
+}
+
+section {
+    display: grid;
+    border-radius: 20px;
+    width: 70%;
+    max-width: 900px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+    /* ✅ verre dépoli */
+    background: rgba(255, 255, 255, 0.15); /* blanc transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+}
+
+
+.ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 15px;
+}
+
+.ligne div {
+    flex: 1; /* chaque champ prend la même largeur */
+}
+
+/* ✅ Style commun pour tous les inputs et selects */
+input, select {
+    width: 100%;            /* prend toute la largeur du parent */
+    padding: 10px;          /* espace intérieur */
+    border: 1px solid #ccc; /* bordure grise */
+    border-radius: 8px;     /* coins arrondis */
+    font-size: 15px;        /* texte lisible */
+    outline: none;          /* supprime le contour bleu par défaut */
+    transition: 0.3s;       /* effet fluide */
+}
+
+/* ✅ Effet focus (quand on clique sur le champ) */
+input:focus, select:focus {
+    border-color: #007bff;  /* bleu */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ✅ Bouton */
+button {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 12px 25px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 16px;
+  
+}
+.logo .logo-im{
+    width: 55px;
+    height: 55px;
+}
+.paragra {
+    text-align: center;
+    margin-bottom: 25px; /* espace entre paragraphe et formulaire */
+}
+
+.paragra h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.paragra p {
+    font-size: 14px;
+    color: #555;
+}
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espace entre icône et texte */
+  color: #333;
+}
+
+label i {
+  color: #0077ff; /* couleur des icônes */
+  font-size: 16px;
+}

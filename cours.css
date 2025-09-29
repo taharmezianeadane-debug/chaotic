@@ -1,0 +1,289 @@
+* {
+
+  box-sizing: border-box;
+}
+body {
+  
+  background-size: 1500px; /* ajuste la taille */
+  
+}
+.header{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 350px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+    font-family: "Courier New", Courier, monospace;
+    background-color: #00a1f7;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 16px;
+  
+}
+.logo .logo-im{
+    width: 55px;
+    height: 55px;
+}
+.navbar{
+    display: flex;
+    gap: 80px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 6px 15px;
+     border-radius: 20px;
+     transition: 0.3s;
+     font-variant: small-caps
+   
+}
+.navbar a.active {
+  background: rgb(236, 6, 6); /* même style que hover */
+  color: white;               /* texte blanc si besoin */
+}
+header .navbar a:hover {
+  background: rgb(236, 6, 6);
+}
+
+ 
+
+
+/* Grille des formations (modules) */
+.modules {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Images des cartes de cours */
+  .islamique {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  display: block;
+}
+
+/* Cartes de cours (.boxe1 … .boxe5) */
+ .boxe4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  border: 1px solid #00a1f7;
+  width: 260px;
+  min-height: 380px;          /* toutes les box à la même hauteur */
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;           /* cache si l’image dépasse */
+  transition: box-shadow 0.3s;
+}
+/* (modif) hover sans agrandissement, juste ombre */
+.boxe4:hover {
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.593);
+}
+
+ .boxe4 ul  {
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.boxe4 li {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.boxe4 button {
+  padding: 10px 16px;
+  background: #00a1f7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 15px 0;
+}
+
+/* (fix) il manquait une virgule avant .boxe5 */
+
+.boxe4 button:hover{
+  background: #ff0000cb;
+}
+
+/* Titre “Popular Courses” */
+.texte2 {
+  display: flex;
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;      /* centre verticalement */
+  height: 200px;            /* donne une hauteur au conteneur */
+  text-align: center;
+}
+.texte2 h1 {
+  font-size: 32px;
+  color: #333;
+}
+/*
+ * ====================================================================
+ * MEDIA QUERIES (RESPONSIVE)
+ * ====================================================================
+ */
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 992px) - Pour Tablettes et petits écrans
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 992px) {
+    /* 🎨 HEADER */
+    .header {
+        gap: 50px; /* Réduit l'espace entre le logo et la navbar */
+        padding: 0 20px;
+    }
+    .logo h1 {
+        font-size: 1.2em;
+    }
+    .navbar {
+        gap: 30px; /* Réduit l'espace entre les liens de navigation */
+        font-size: 16px;
+    }
+    .navbar a {
+        padding: 6px 10px;
+    }
+
+    /* 📚 COURS */
+    .modules {
+        gap: 20px;
+    }
+    .boxe4 {
+        /* Deux cartes par ligne */
+        width: 45%; 
+        min-height: 350px;
+    }
+    .islamique {
+        height: 150px;
+    }
+}
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 768px) - POUR TÉLÉPHONES MOBILES (Mise à jour Professionnelle)
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    /* 🖼️ BODY & GENERAL */
+    body {
+        /* Annule le background et utilise un fond clair */
+        background: none; 
+        background-color: #f0f4f7;
+    }
+    .main {
+        /* Ajuste le padding principal */
+        padding: 0 15px;
+    }
+
+    /* 📱 HEADER PROFESSIONNEL NON FIXE ET BLEU */
+    .header {
+        /* MODIFICATION CLÉ 1: Rend le header NON FIXE */
+        position: relative; 
+        /* MODIFICATION CLÉ 2: Style bleu uniforme */
+        background-color: #00a1f7;
+        backdrop-filter: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+        color: white; 
+        
+        /* Disposition interne */
+        flex-direction: column;
+        gap: 0; 
+        padding: 15px 0 10px 0; 
+        align-items: center;
+    }
+    
+    .logo {
+        margin-left: 0; 
+        gap: 8px;
+        margin-bottom: 10px; 
+    }
+    
+    .logo h1 {
+        font-size: 1.2em;
+        color: white;
+    }
+    .logo .logo-im {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* NAV BAR VERTICALE ET CENTRÉE */
+    .navbar {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center; 
+        gap: 5px; 
+        width: 100%; 
+        padding: 5px 0;
+        background: rgba(0, 0, 0, 0.1); 
+    }
+    
+    .navbar a {
+        width: 85%; 
+        max-width: 300px; 
+        text-align: center;
+        padding: 10px 15px; 
+        font-size: 15px;
+        margin: 2px 0;
+        color: white; 
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px; /* Plus carré, style plus moderne */
+        transition: 0.2s ease-in-out;
+    }
+    
+    .navbar a:hover, .navbar a.active {
+        /* Rouge action pour le contraste sur le bleu */
+        background: #e74c3c; 
+        color: white;
+        transform: scale(1.02); 
+        border-color: #e74c3c;
+    }
+
+    /* 📚 COURS (Modules) */
+    .texte2 {
+        /* Ajustement du titre */
+        height: auto;
+        padding: 40px 0 20px 0;
+    }
+    .texte2 h1 {
+        font-size: 28px;
+    }
+
+    .modules {
+        padding: 0;
+        gap: 25px; /* Espace vertical entre les cartes */
+    }
+
+    .boxe4 {
+        /* Une seule carte par ligne */
+        width: 95%; 
+        max-width: 350px; /* Limite la largeur pour ne pas être trop grande */
+        min-height: 380px; 
+    }
+
+    .boxe4 button {
+        /* Assure que le bouton est facile à cliquer */
+        width: 80%;
+        padding: 12px;
+        font-size: 16px;
+    }
+}

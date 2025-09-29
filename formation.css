@@ -1,0 +1,470 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* La propriété background-size est souvent mieux gérée sur un background-image */
+    /* Si vous n'avez pas d'image, cette ligne n'a pas beaucoup d'effet */
+    background-size: 1500px;
+}
+
+/* ====================================================================
+ * HEADER (Desktop) - Correction de la double définition
+ * ==================================================================== */
+.header{
+    display: flex;
+    align-items: center;
+    position: fixed; /* Header fixe sur Desktop */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Règle le gap pour éviter les problèmes de débordement sur les écrans plus petits que 1500px */
+    gap: 150px; /* Réduit le gap de 350px à 150px pour plus de sécurité */
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+    font-family: "Courier New", Courier, monospace;
+    background-color: #00a1f7;
+    z-index: 100; /* Assure que le header est au-dessus du contenu */
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 16px;
+}
+
+.logo .logo-im{
+    width: 55px;
+    height: 55px;
+}
+
+.navbar{
+    display: flex;
+    gap: 80px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-variant: small-caps
+}
+
+.navbar a.active {
+    background: rgb(236, 6, 6);
+    color: white;
+}
+
+header .navbar a:hover {
+    background: rgb(236, 6, 6);
+}
+
+/* ====================================================================
+ * MAIN Content
+ * ==================================================================== */
+.main {
+    display: grid;
+    margin-top: 120px; /* Décale le contenu vers le bas (sous le header fixe) */
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+/* HOME Section */
+.home {
+    display: flex;
+    align-items: center; /* ALIGNE CORRECTEMENT le texte et l'image */
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px;
+}
+
+.parag {
+    flex: 1;
+    text-align: left;
+    max-width: 600px;
+    font-variant: small-caps;
+    /* CORRECTION: Suppression des marges/paddings négatifs illégaux */
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.big-title{
+    font-size: 60px;
+}
+.sub-title{
+    margin-top: 30px;
+}
+.description{
+    font-size: 18px;
+}
+
+.img{
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* Boutons de la section d’accueil */
+.btn{
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    margin-top: 80px;
+}
+.btn button {
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    border-color: #00a1f7;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+.btn .inscri{
+    background-color: #00a1f7;
+    color: white;
+    margin-left: 30px;
+}
+.btn .lire{
+    margin-left: 50px;
+    border: 1px solid #00a1f7; 
+    background: transparent;
+    color: #00a1f7;
+}
+.btn .lire:hover {
+    background: #00a1f7;
+    color: white;
+}
+.btn .inscri:hover {
+    background: #00f70c;
+    color: white;
+}
+
+/* Section WHY (cinq petites cartes) */
+.why{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+}
+.educ, .enligne,.step,.service,.like{
+    width: 50px;
+    height: 50px;
+}
+.box1 , .box2 , .box3 , .box4 , .box5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #00a1f7;
+    padding: 50px;
+    width: 280px;
+    transition: background 0.3s, color 0.3s;
+}
+.box1:hover , .box2:hover, .box3:hover , .box4:hover , .box5:hover{
+    color: #ececec;
+    background-color: #00a1f7;
+}
+.whyt{
+    text-align: center;
+    /* CORRECTION: Marge négative supprimée */
+    margin-top: 0; 
+}
+.whyt p{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+/* Grille des formations (modules) */
+.modules {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Images des cartes de cours */
+.math, .coding, .bdd , .islamique , .daw{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    display: block;
+}
+
+/* Cartes de cours (.boxe1 … .boxe5) */
+.boxe1, .boxe2, .boxe3 , .boxe4 , .boxe5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    border: 1px solid #00a1f7;
+    width: 260px;
+    min-height: 380px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s, background 0.3s; /* Ajout de background pour hover */
+}
+
+/* CORRECTION/AJOUT: Harmonisation du style hover des modules avec les box WHY */
+.boxe1:hover, .boxe2:hover, .boxe3:hover , .boxe4:hover , .boxe5:hover{
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    background-color: #00a1f7; /* Ajout du fond bleu */
+    color: white; /* Texte blanc pour la lisibilité */
+}
+
+.boxe1 ul, .boxe2 ul, .boxe3 ul , .boxe4 ul , .boxe5 ul {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.boxe1 li, .boxe2 li, .boxe3 li , .boxe4 li , .boxe5 li {
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+.boxe1 button, .boxe2 button, .boxe3 button , .boxe4 button , .boxe5 button{
+    padding: 10px 16px;
+    background: #fff; /* Changé à blanc pour contraster avec le hover de la box */
+    color: #00a1f7; /* Couleur de texte bleu */
+    border: 1px solid #00a1f7; /* Bordure bleue */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    margin: 15px 0;
+}
+
+.boxe1 button:hover,
+.boxe2 button:hover,
+.boxe3 button:hover,
+.boxe4 button:hover,
+.boxe5 button:hover {
+    background: #e74c3c; /* Rouge pour l'action (meilleur que le bleu foncé) */
+    color: white;
+}
+
+/* Titre “Popular Courses” */
+.texte2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    text-align: center;
+}
+.texte2 h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+/*
+ * ====================================================================
+ * MEDIA QUERIES (RESPONSIVE) - Style Mobile Corrigé et Optimisé
+ * ====================================================================
+ */
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 992px) - Tablettes (2 colonnes)
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 992px) {
+    /* 🎨 HEADER */
+    .header {
+        gap: 50px; 
+        padding: 0 20px;
+    }
+    .logo h1 {
+        font-size: 1.2em;
+    }
+    .navbar {
+        gap: 30px; 
+        font-size: 16px;
+    }
+    .navbar a {
+        padding: 6px 10px;
+    }
+    
+    /* 🏠 HOME Section */
+    .img {
+        width: 400px;
+        height: 400px;
+    }
+
+    /* ⭐ WHY Section (5 cartes) */
+    .why {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .box1, .box2, .box3, .box4, .box5 {
+        width: 45%;
+        padding: 30px;
+    }
+    
+    /* 📚 MODULES Section (Formations/Cours) */
+    .modules {
+        gap: 20px;
+    }
+    .boxe1, .boxe2, .boxe3, .boxe4, .boxe5 {
+        width: 45%;
+    }
+}
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 768px) - TÉLÉPHONES MOBILES (1 colonne, non fixe)
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    
+    /* 🖼️ BODY & GENERAL */
+    body {
+        background: none; 
+        background-color: #f0f4f7;
+    }
+    .main {
+        /* CLÉ : Annule le margin-top du header fixe */
+        margin-top: 0 !important; 
+        padding: 0 15px;
+    }
+
+    /* 📱 HEADER PROFESSIONNEL NON FIXE ET BLEU */
+    .header {
+        position: relative; /* CLÉ: Rendre le header NON FIXE */
+        background-color: #00a1f7; /* CLÉ: Fond bleu uni */
+        backdrop-filter: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+        color: white; 
+        flex-direction: column;
+        gap: 0; 
+        padding: 15px 0 10px 0; 
+        align-items: center;
+    }
+    
+    .logo {
+        margin-left: 0; 
+        gap: 8px;
+        margin-bottom: 10px; 
+    }
+    
+    .logo h1 {
+        font-size: 1.2em;
+        color: white;
+    }
+    .logo .logo-im {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* NAV BAR VERTICALE ET CENTRÉE */
+    .navbar {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center; 
+        gap: 5px; 
+        width: 100%; 
+        padding: 5px 0;
+        background: rgba(0, 0, 0, 0.1); 
+    }
+    
+    .navbar a {
+        /* Rendu bouton cliquable professionnel */
+        width: 85%; 
+        max-width: 300px; 
+        text-align: center;
+        padding: 10px 15px; 
+        font-size: 15px;
+        margin: 2px 0;
+        color: white; 
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px; 
+        transition: 0.2s ease-in-out;
+    }
+    
+    .navbar a:hover, .navbar a.active {
+        background: #e74c3c; 
+        color: white;
+        transform: scale(1.02); 
+        border-color: #e74c3c;
+    }
+
+    /* 🏠 HOME Section */
+    .home {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 0;
+    }
+    .parag {
+        order: 2; 
+        margin-top: 0; 
+        padding-top: 0;
+        max-width: 100%;
+    }
+    .big-title {
+        font-size: 36px;
+    }
+    .img {
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        order: 1; 
+    }
+    .btn {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        align-items: center;
+    }
+    .btn button {
+        width: 85%;
+        margin: 5px 0 !important;
+    }
+
+    /* ⭐ WHY Section */
+    .whyt {
+        margin-top: 40px;
+    }
+    .whyt p {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 15px;
+    }
+    .why {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .box1, .box2, .box3, .box4, .box5 {
+        width: 85%; 
+        max-width: 350px;
+        padding: 30px;
+    }
+
+    /* 📚 MODULES Section */
+    .texte2 {
+        height: auto;
+        padding: 40px 0 20px 0;
+    }
+    .texte2 h1 {
+        font-size: 28px;
+    }
+    .modules { 
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+    .boxe1, .boxe2, .boxe3, .boxe4, .boxe5 {
+        width: 100%; 
+        max-width: 350px; 
+        margin: 0;
+    }
+}

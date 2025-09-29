@@ -1,0 +1,146 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url("SL-091920-35320-15.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Section transparente */
+.big_box {
+    background: rgba(255, 255, 255, 0.8); /* blanc semi-transparent */
+    width: 70%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo-im {
+    width: 50px;
+    height: 50px;
+}
+
+.paragra {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.paragra h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.paragra p {
+    font-size: 14px;
+    color: #666;
+}
+
+.ligne {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.ligne div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* espace entre icône et texte */
+label i {
+    margin-right: 8px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #007BFF;
+}
+
+/* checkbox + lien */
+.remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.remember .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* lien mot de passe */
+.remember .forgot {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.remember .forgot:hover {
+    text-decoration: underline;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.begin {
+    background: #00a1f7;
+}
+
+.begin:hover {
+    background: #1eb300;
+}

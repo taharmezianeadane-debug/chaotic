@@ -1,0 +1,303 @@
+/* ========== RESET DE BASE ========== */
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* ========== STYLE DU BODY ========== */
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ========== HEADER (BARRE DE NAVIGATION) - CORRIGÉ : Backdrop-filter retiré car inutile ========== */
+.header {
+    display: flex;
+    align-items: center;
+    position: fixed; /* FIXE sur Desktop */
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 350px;
+    /* CORRECTION: Retire le filtre de flou car le fond est opaque (bleu #00a1f7) */
+    /* backdrop-filter: blur(30px); */
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    background-color: #00a1f7;
+    z-index: 1000;
+    padding: 12px 20px;
+}
+
+/* ========== LOGO (IMAGE + TEXTE) ========== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 16px;
+}
+
+.logo .logo-im {
+    width: 55px;
+    height: 55px;
+}
+
+/* ========== NAVBAR (MENU DE LIENS) ========== */
+.navbar {
+    display: flex;
+    gap: 80px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-variant: small-caps;
+}
+
+.navbar a.active {
+    background: rgb(236, 6, 6);
+    color: white;
+}
+
+.navbar a:hover {
+    background: rgb(236, 6, 6);
+    color: white;
+}
+
+/* ========== SECTION RESEAUX SOCIAUX ========== */
+.social-section {
+    margin-top: 250px; /* Espace sous le header fixe (Desktop) */
+    width: 100%;
+    text-align: center;
+}
+
+/* Titre de la section */
+.social-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Conteneur des icônes */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+/* Bloc icône + texte */
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Icônes sociales */
+.social-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+    color: white;
+    background: #00a1f7;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+}
+
+/* Texte sous les icônes */
+.social-item p {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Effets HOVER personnalisés pour chaque réseau */
+.social-item.facebook a:hover {
+    background: #1877f2;
+    transform: scale(1.1);
+}
+
+.social-item.instagram a:hover {
+    background: #ff009d;
+    transform: scale(1.1);
+}
+
+.social-item.whatsapp a:hover {
+    background: #25d366;
+    transform: scale(1.1);
+}
+
+.social-item.telegram a:hover {
+    background: #0088cc;
+    transform: scale(1.1);
+}
+
+.social-item.gmail a:hover {
+    background: #ea4335;
+    transform: scale(1.1);
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/*
+ * ====================================================================
+ * MEDIA QUERIES (RESPONSIVE) - Style Mobile pour la page Social
+ * ====================================================================
+ */
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 992px) - Tablettes (Ajustement Général)
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 992px) {
+    /* 🎨 HEADER */
+    .header {
+        gap: 50px;
+        padding: 10px 20px;
+    }
+    .navbar {
+        gap: 30px;
+        font-size: 16px;
+    }
+    .navbar a {
+        padding: 6px 10px;
+    }
+
+    /* 🌐 Section Social */
+    .social-section {
+        margin-top: 150px;
+    }
+
+    /* Conteneur des icônes: Affichage sur 2 ou 3 colonnes si l'espace le permet */
+    .social-links {
+        gap: 40px;
+    }
+    .social-item {
+        width: 30%;
+        max-width: 150px;
+    }
+    .social-item a {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+    }
+}
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 768px) - TÉLÉPHONES MOBILES (Non-fixe, Navigation empilée)
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+
+    /* 🖼️ BODY & GENERAL */
+    .social-section {
+        /* CLÉ : Annule la marge supérieure fixe pour que le contenu défile juste après le header */
+        margin-top: 0 !important;
+        padding: 20px 15px;
+    }
+
+    /* 📱 HEADER PROFESSIONNEL NON FIXE ET BLEU */
+    .header {
+        position: relative; /* CLÉ 1: Rendre le header NON FIXE */
+        background-color: #00a1f7; /* CLÉ 2: Style bleu uniforme */
+        /* backdrop-filter: none; Inutile de le redéfinir car il a été retiré plus haut */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        color: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 15px 0 10px 0;
+        align-items: center;
+    }
+
+    .logo {
+        margin-left: 0;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .logo .logo-im {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* NAV BAR VERTICALE ET CENTRÉE (Style Bouton Empilé) */
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        padding: 5px 0;
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+        /* Rendu bouton cliquable professionnel */
+        width: 85%;
+        max-width: 300px;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 15px;
+        margin: 2px 0;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        transition: 0.2s ease-in-out;
+    }
+
+    .navbar a:hover, .navbar a.active {
+        background: #e74c3c;
+        color: white;
+        transform: scale(1.02);
+        border-color: #e74c3c;
+    }
+
+    /* 🌐 Section Sociale (Contenu) */
+    .social-title {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    /* Icônes: Affichage sur deux petites colonnes */
+    .social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px 15px;
+        padding: 0 10px;
+    }
+
+    .social-item {
+        width: 45%;
+        max-width: 150px;
+    }
+
+    .social-item a {
+        width: 75px;
+        height: 75px;
+        font-size: 32px;
+    }
+
+    .social-item p {
+        font-size: 14px;
+    }
+}

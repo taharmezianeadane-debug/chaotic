@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="formulaire.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+   <section class="big_box">
+        <!-- Logo + titre -->
+        <div class="logo">
+            <img src="photo du site/logo.png" alt="logo" class="logo-im">
+            <h1>CHAOTIC .educ</h1>
+        </div>
+
+        <!-- Titre de la section -->
+        <div class="paragra">
+            <h1>INSCRIPTION</h1>
+            <p>Ces inscriptions sont nécessaires pour vous accéder aux formations</p>
+        </div>
+
+        <!-- Formulaire -->
+        <form action="insert.php" method="POST">
+            <!-- Ligne 1 -->
+            <div class="ligne">
+                <div>
+                    <label for="nom"><i class="fa-solid fa-user"></i> NOM:</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div>
+                    <label for="prenom"><i class="fa-solid fa-user"></i> Prénom:</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div>
+                    <label for="date_naissance"><i class="fa-solid fa-calendar"></i> Date de naissance:</label>
+                    <input type="date" id="date_naissance" name="date_naissance" required>
+                </div>
+            </div>
+
+            <!-- Ligne 2 -->
+            <div class="ligne">
+                <div>
+                    <label for="telephone"><i class="fa-solid fa-phone"></i> Tel:</label>
+                    <input type="number" id="telephone" name="telephone" required>
+                </div>
+                <div>
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Gmail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="reseaux"><i class="fa-brands fa-facebook"></i> Réseaux:</label>
+                    <input type="text" id="reseaux" name="reseaux" required>
+                </div>
+            </div>
+
+            <!-- Ligne 3 -->
+            <div class="ligne">
+                <div>
+                    <label for="niveau"><i class="fa-solid fa-graduation-cap"></i> Niveau:</label>
+                    <select id="niveau" name="niveau" required>
+                        <option value="">-- Choisir --</option>
+                        <option value="lycee">Lycée</option>
+                        <option value="universite">Université</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="annee"><i class="fa-solid fa-book"></i> Année d'étude:</label>
+                    <select id="annee" name="annee" required>
+                        <option value="">-- Choisir --</option>
+                        <option value="terminal">Terminal</option>
+                        <option value="info">Université Informatique</option>
+                        <option value="st">Université ST</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="autre"><i class="fa-solid fa-pen"></i> Autre:</label>
+                    <input type="text" id="autre" name="autre" placeholder="Optionnel">
+                </div>
+            </div>
+
+            <!-- Ligne 4 -->
+            <div class="ligne">
+                <div>
+                    <label for="interet"><i class="fa-solid fa-star"></i> Intérêt:</label>
+                    <select id="interet" name="interet" required>
+                        <option value="">-- Choisir --</option>
+                        <option value="formation">Formation</option>
+                        <option value="cours">Cours</option>
+                        <option value="sujet">Sujet</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="password"><i class="fa-solid fa-lock"></i> Mot de passe:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <label for="confirm_password"><i class="fa-solid fa-lock"></i> Confirmer le mot de passe:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+            </div>
+
+            <!-- Bouton -->
+            <div class="btn">
+                <button type="submit">ENREGISTRER</button>
+            </div>
+        </form>
+   </section>
+</body>
+</html>

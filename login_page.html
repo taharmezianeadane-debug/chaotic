@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="logine_page.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+   <section class="big_box">
+        <!-- Logo + titre -->
+        <div class="logo">
+            <img src="logo.png" alt="logo" class="logo-im">
+            <h1>CHAOTIC .educ</h1>
+        </div>
+
+        <!-- Titre de la section -->
+        <div class="paragra">
+            <h1>CONNEXION</h1>
+            <p>Veuillez entrer vos informations pour accéder à votre espace</p>
+        </div>
+
+        <!-- Formulaire -->
+        <form action="">
+            <div class="ligne">
+                <div>
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Gmail :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password"><i class="fa-solid fa-lock"></i> Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+
+            <!-- Checkbox + lien mot de passe -->
+            <div class="remember">
+                <div class="left">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Enregistrer mes informations</label>
+                </div>
+                <div class="right">
+                    <a href="#" class="forgot">Récupérer mon mot de passe</a>
+                </div>
+            </div>
+
+            <!-- Bouton Begin -->
+            <div class="btns">
+                <button type="submit" class="begin">BEGIN</button>
+            </div>
+        </form>
+   </section>
+</body>
+</html>

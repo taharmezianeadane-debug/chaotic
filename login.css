@@ -1,0 +1,587 @@
+* {
+
+  box-sizing: border-box;
+}
+body {
+  background: url("photo du site/header-shape.svg") no-repeat top right;
+  background-size: 1500px; /* ajuste la taille */
+  
+}
+.header{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 350px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+    font-family: "Courier New", Courier, monospace;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 16px;
+  
+}
+.logo .logo-im{
+    width: 55px;
+    height: 55px;
+}
+.navbar{
+    display: flex;
+    gap: 80px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 6px 15px;
+     border-radius: 20px;
+     transition: 0.3s;
+     font-variant: small-caps
+   
+}
+.navbar a.active {
+  background: rgb(236, 6, 6); /* même style que hover */
+  color: white;               /* texte blanc si besoin */
+}
+header .navbar a:hover {
+  background: rgb(236, 6, 6);
+}
+
+/* la continue : */
+.main {
+  display: grid;
+  margin-top: 120px; /* décale le contenu vers le bas */
+  padding: 0px;
+  font-family: sans-serif;
+  
+   
+}
+ .home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px;
+ }
+ .parag {
+  flex: 1;           /* prend tout l’espace disponible */
+  text-align: left;  /* aligne à gauche */
+  max-width: 600px;
+  font-variant: small-caps; 
+   margin-top: -240px;
+   padding-top: -120px;
+}
+.big-title{
+  font-size: 60px;
+}
+.sub-title{
+  margin-top: 30px;
+}
+.description{
+   
+  font-size: -30px;
+}
+.img{
+   width: 600px;
+    height: 600px;
+}
+.btn{
+  display: flex;
+  gap: 0px;
+  align-items: center;
+  margin-top: 80px;
+}
+.btn button {
+padding: 14px 30px;     /* bonne taille interne */
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  border-color: #00a1f7;
+}
+.btn .inscri{
+  background-color: #00a1f7;   /* rouge */
+  color: white;
+  margin-left: 30px;
+}
+.btn .lire{
+margin-left: 50px;
+border: 1px solid #00a1f7;  
+}
+.btn .lire:hover {
+  background: #00a1f7;   /* devient bleu au hover */
+  color: white;          /* texte blanc */
+}
+.btn .inscri:hover {
+  background: #00f70c;   /* devient bleu au hover */
+  color: white;          /* texte blanc */
+}
+.why{
+  display: flex;
+  align-items: center;
+  
+}
+/* Conteneur principal */
+.why {
+  display: flex;
+  justify-content: space-around; /* espace entre les box */
+  align-items: center;
+  margin-top: 80px;
+}
+.educ, .enligne,.step,.service,.like{
+   width: 50px;
+    height: 50px;
+    
+}
+.box1 , .box2 , .box3 , .box4 ,.box5{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #00a1f7;
+  padding: 50px;
+  width: 280px;
+
+}
+.box1:hover , .box2:hover, .box3:hover , .box4:hover ,.box5:hover{
+ color : #ececec;
+ background-color: #00a1f7;
+ transform: scale(1.1);
+}
+.whyt{
+  text-align: center;
+  margin-top: -40px;
+}
+.whyt p{
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.modules {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.math, .coding, .bdd , .islamique ,.daw{
+  width: 100%;                /* prend toute la largeur */
+  height: 180px;              /* hauteur fixe */
+  object-fit: cover;          /* couvre toute la zone */
+  border-radius: 12px 12px 0 0; /* arrondi seulement en haut */
+  display: block;
+}
+
+.boxe1, .boxe2, .boxe3 ,.boxe4,.boxe5{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  border: 1px solid #00a1f7;
+  width: 260px;
+  min-height: 380px;          /* toutes les box à la même hauteur */
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;           /* cache si l’image dépasse */
+  
+}
+
+.boxe1 ul, .boxe2 ul, .boxe3 ul , .boxe4 ul ,.boxe5 ul {
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.boxe1 li, .boxe2 li, .boxe3 li ,.boxe4 li ,.boxe5 li {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.boxe1 button, .boxe2 button, .boxe3 button , .boxe4 button  ,.boxe5 button{
+  padding: 10px 16px;
+  background: #00a1f7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 15px 0;
+}
+
+.boxe1 button:hover,
+.boxe2 button:hover,
+.boxe3 button:hover,
+.boxe4 button:hover
+.boxe5 button:hover {
+  background: #007acc;
+}
+.texte2 {
+  display: flex;
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;      /* centre verticalement */
+  height: 200px;            /* donne une hauteur au conteneur */
+  text-align: center;
+}
+
+.texte2 h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.reseau {
+  width: 100%;
+  margin: 80px 0 0 0; /* seulement marge en haut */
+  padding: 40px 60px; /* espace interne */
+  display: flex;      /* permet l’alignement gauche/droite */
+  justify-content: space-between;
+  align-items: center;
+
+  /* 🎨 Dégradé en fond */
+  background: linear-gradient(135deg, #00a1f7, #014092);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white; /* texte en blanc */
+  
+}
+.logo02{
+  display: flex;
+  align-items: center;
+}
+
+.logo02 .log {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+    width: 50px;
+    height: 50px;
+}
+.gauche{
+  display: grid;
+  align-items: center;
+}
+.tel .tele{
+  width: 300px;
+    height:550px;
+}
+.daroite {
+  text-align: center;   /* centre le contenu */
+  margin-top: 20px;
+}
+
+.daroite h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.daroite .social {
+  display: flex;
+  justify-content: center; /* centre les icônes */
+  gap: 30px;              /* espace entre les icônes */
+  margin-bottom: 20px;
+}
+
+.daroite .social i {
+  font-size: 50px;        /* taille des icônes */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.daroite .social i:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Couleurs des icônes */
+.daroite i.fa-facebook { color: #1877F2; }
+.daroite i.fa-instagram { color: #C13584; }
+.daroite i.fa-envelope { color: #EA4335; }
+.daroite i.fa-whatsapp { color: #25D366; }
+
+/* QR code */
+.qr .qr-img {
+  width: 120px;  /* taille du QR */
+  height: auto;
+  margin-top: 15px;
+}
+.vedeo {
+  display: flex;
+  justify-content: center; /* centre la vidéo horizontalement */
+  align-items: center;     /* centre verticalement si nécessaire */
+  margin: 20px 0;
+}
+
+.ma-video {
+  width: 500px;            /* largeur fixe */
+  height: 350px;           /* hauteur fixe */
+  border: 1px solid #1877F2; /* bordure bleue (tu peux changer la couleur) */
+  border-radius: 15px;     /* coins arrondis */
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.3); /* ombre élégante */
+}
+ /*
+ * ====================================================================
+ * MEDIA QUERIES (RESPONSIVE)
+ * ====================================================================
+ */
+
+/* --------------------------------------------------------------------
+ * @media (max-width: 992px) - Pour Tablettes et petits écrans d'ordinateur
+ * --------------------------------------------------------------------
+ */
+@media (max-width: 992px) {
+    /* 🎨 HEADER */
+    .header {
+        gap: 50px; /* Réduit l'espace entre le logo et la navbar */
+        padding: 0 20px;
+    }
+    .logo h1 {
+        font-size: 1.2em;
+    }
+    .navbar {
+        gap: 30px; /* Réduit l'espace entre les liens de navigation */
+        font-size: 16px;
+    }
+
+    /* 🏠 SECTION HOME (Accueil) */
+    .home {
+        flex-direction: column; /* Empile les éléments verticalement */
+        text-align: center;
+    }
+    .parag {
+        max-width: 90%;
+        margin-top: 0; /* Annule le décalage négatif */
+        padding-top: 0;
+        order: 2; /* Met le paragraphe après l'image pour le mobile */
+    }
+    .big-title {
+        font-size: 40px;
+    }
+    .sub-title {
+        margin-top: 15px;
+    }
+    .img {
+        width: 400px;
+        height: 400px;
+        order: 1; /* Met l'image avant le paragraphe */
+    }
+    .btn {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    /* ⭐ SECTION WHY (Pourquoi notre page ?) */
+    .why {
+        flex-wrap: wrap; /* Permet aux box de passer à la ligne */
+        justify-content: center;
+        gap: 20px;
+        margin-top: 50px;
+    }
+    .box1, .box2, .box3, .box4, .box5 {
+        width: 40%; /* Deux box par ligne */
+        padding: 30px;
+    }
+    .whyt p {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    /* 📚 SECTION MODULES (Cours populaires et Services Cyber) */
+    .modules {
+        gap: 20px;
+    }
+    .boxe1, .boxe2, .boxe3, .boxe4, .boxe5 {
+        width: 45%; /* Deux box par ligne */
+        min-height: 350px;
+    }
+
+    /* 🌐 SECTION RESEAU (Réseaux Sociaux et Vidéo) */
+    .reseau {
+        flex-direction: column; /* Empile les éléments verticalement */
+        padding: 30px 20px;
+    }
+    .gauche, .daroite {
+        margin-bottom: 30px;
+    }
+    .tel .tele {
+        width: 200px;
+        height: 350px;
+    }
+    .vedeo {
+        order: -1; /* Place la vidéo en premier pour une meilleure visibilité */
+    }
+    .ma-video {
+        width: 100%; /* S'adapte à la largeur du conteneur */
+        max-width: 450px; /* Limite la taille sur tablette */
+        height: auto;
+    }
+}
+/*
+ * ====================================================================
+ * @media (max-width: 768px) - POUR TÉLÉPHONES MOBILES (Mise à jour Professionnelle)
+ * ====================================================================
+ */
+@media (max-width: 768px) {
+    /* 🖼️ BACKGROUND */
+    body {
+        /* On réduit ou masque l'image de fond pour plus de clarté sur mobile */
+        background: none; 
+        background-color: #f0f4f7; /* Un fond très clair si nécessaire */
+    }
+
+    /* 📱 HEADER PROFESSIONNEL NON FIXE ET BLEU */
+    .header {
+        /* MODIFICATION CLÉ 1: Rend le header NON FIXE */
+        position: relative; /* Retire la position 'fixed' */
+        top: 0;
+        left: 0;
+        
+        /* MODIFICATION CLÉ 2: Applique le fond bleu uni */
+        background: #00a1f7; /* Couleur bleue de vos boutons */
+        backdrop-filter: none; /* Supprime le filtre de flou */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Ombre propre */
+        color: white; /* Texte en blanc pour un meilleur contraste */
+        
+        /* Disposition interne */
+        flex-direction: column;
+        gap: 0; 
+        padding: 15px 0 10px 0; 
+        align-items: center;
+    }
+    
+    .logo {
+        margin-left: 0; 
+        gap: 8px;
+        margin-bottom: 10px; /* Ajoute de l'espace avant la nav */
+    }
+    
+    .logo h1 {
+        font-size: 1.2em;
+        color: white;
+    }
+    .logo .logo-im {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* NAV BAR VERTICALE ET CENTRÉE (sous le logo) */
+    .navbar {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center; 
+        gap: 5px; 
+        width: 100%; 
+        padding: 5px 0;
+        background: rgba(0, 0, 0, 0.1); /* Une petite couleur de fond pour la nav */
+    }
+    
+    .navbar a {
+        width: 85%; /* Plus large pour faciliter le clic */
+        max-width: 300px; 
+        text-align: center;
+        padding: 10px 15px; /* Plus grand padding pour le côté 'bouton' pro */
+        font-size: 15px;
+        margin: 2px 0;
+        color: white; /* Les liens sont en blanc sur le fond bleu du header */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Petite bordure discrète */
+        transition: 0.2s ease-in-out;
+    }
+    
+    .navbar a:hover, .navbar a.active {
+        /* L'état actif/hover se démarque clairement */
+        background: #e74c3c; /* Un rouge-vif pour l'action (meilleur que le rouge terne) */
+        color: white;
+        transform: scale(1.02); /* Effet de zoom plus discret */
+        border-color: #e74c3c;
+    }
+
+
+    /* 🏠 SECTION HOME (Accueil) - Réinitialisation de la marge pour le header non fixe */
+    .main {
+        /* Annule la marge forcée puisque le header n'est plus fixe */
+        margin-top: 20px; 
+        padding: 0 15px;
+    }
+    
+    .home {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 0;
+    }
+    
+    .parag {
+        order: 2; 
+        /* Correction des marges/padding négatifs de l'HTML si elles existent */
+        margin-top: 0; 
+        padding-top: 0;
+    }
+    
+    .big-title {
+        font-size: 28px;
+    }
+
+    .img {
+        width: 90%;
+        height: auto;
+        order: 1; 
+    }
+    
+    .btn {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .btn button {
+        width: 85%; 
+        margin: 0 !important;
+    }
+
+    /* ⭐ SECTIONS DE CONTENU (WHY, MODULES) */
+    .whyt h1, .texte2 h1 {
+        font-size: 24px;
+        margin-top: 40px; /* Sépare les sections */
+    }
+
+    .why {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .box1, .box2, .box3, .box4, .box5 {
+        width: 85%; 
+        max-width: 350px;
+        padding: 25px;
+    }
+    .boxe1, .boxe2, .boxe3, .boxe4, .boxe5 {
+        width: 100%;
+        max-width: 350px; 
+    }
+
+    /* 🌐 SECTION RESEAU (Footer) */
+    .reseau {
+        flex-direction: column;
+        padding: 30px 15px;
+        margin-top: 50px; /* Plus d'espace au-dessus du footer */
+    }
+    
+    .vedeo {
+        order: -1; 
+        margin-bottom: 20px;
+    }
+    .ma-video {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+    .daroite h1 {
+        font-size: 20px;
+    }
+}
