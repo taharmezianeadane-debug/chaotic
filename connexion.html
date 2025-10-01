@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="formulaire.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
    <section class="big_box">
@@ -24,8 +22,11 @@
             <p>Ces inscriptions sont nécessaires pour vous accéder aux formations</p>
         </div>
 
-        <!-- Formulaire -->
-        <form action="insert.php" method="POST">
+        <!-- Formulaire Netlify -->
+        <form name="inscription" method="POST" data-netlify="true">
+            <!-- OBLIGATOIRE pour Netlify -->
+            <input type="hidden" name="form-name" value="inscription">
+
             <!-- Ligne 1 -->
             <div class="ligne">
                 <div>
