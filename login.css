@@ -541,19 +541,20 @@ border: 1px solid #00a1f7;
         margin-top: 30px;
     }
     .btn button {
-        width: 85%; 
+        width: 100%; 
         margin: 0 !important;
     }
 
     /* ⭐ SECTIONS DE CONTENU (WHY, MODULES) */
     .whyt h1, .texte2 h1 {
         font-size: 24px;
-        margin-top: 40px; /* Sépare les sections */
+        margin-top: 100px; /* Sépare les sections */
     }
 
     .why {
         flex-direction: column;
         gap: 20px;
+      
     }
     .box1, .box2, .box3, .box4, .box5 {
         width: 85%; 
@@ -569,7 +570,7 @@ border: 1px solid #00a1f7;
     .reseau {
         flex-direction: column;
         padding: 30px 15px;
-        margin-top: 50px; /* Plus d'espace au-dessus du footer */
+        margin-top: 100px; /* Plus d'espace au-dessus du footer */
     }
     
     .vedeo {
