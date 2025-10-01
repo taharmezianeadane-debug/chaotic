@@ -1,32 +1,33 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* pour que padding et border soient inclus dans la largeur */
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     background-image: url(SL-091920-35320-15.jpg);
+    background-size: cover;
+    background-position: center;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* occupe toute la hauteur de l'écran */
+    min-height: 100vh;
     font-family: Arial, sans-serif;
 }
 
 section {
     display: grid;
     border-radius: 20px;
-    width: 70%;
+    width: 90%;
     max-width: 900px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 
-    /* ✅ verre dépoli */
-    background: rgba(255, 255, 255, 0.15); /* blanc transparent */
+    /* ✅ effet verre dépoli */
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Safari */
+    -webkit-backdrop-filter: blur(10px);
 }
-
 
 .ligne {
     display: flex;
@@ -37,30 +38,37 @@ section {
 }
 
 .ligne div {
-    flex: 1; /* chaque champ prend la même largeur */
+    flex: 1;
 }
 
-/* ✅ Style commun pour tous les inputs et selects */
+/* ✅ Style commun inputs et selects */
 input, select {
-    width: 100%;            /* prend toute la largeur du parent */
-    padding: 10px;          /* espace intérieur */
-    border: 1px solid #ccc; /* bordure grise */
-    border-radius: 8px;     /* coins arrondis */
-    font-size: 15px;        /* texte lisible */
-    outline: none;          /* supprime le contour bleu par défaut */
-    transition: 0.3s;       /* effet fluide */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
 }
 
-/* ✅ Effet focus (quand on clique sur le champ) */
 input:focus, select:focus {
-    border-color: #007bff;  /* bleu */
+    border-color: #007bff;
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
 
 label {
     font-weight: bold;
     margin-bottom: 5px;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #333;
+}
+
+label i {
+    color: #0077ff;
+    font-size: 16px;
 }
 
 /* ✅ Bouton */
@@ -80,20 +88,22 @@ button {
 button:hover {
     background: #0056b3;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-left: 16px;
-  
 }
-.logo .logo-im{
+
+.logo .logo-im {
     width: 55px;
     height: 55px;
 }
+
 .paragra {
     text-align: center;
-    margin-bottom: 25px; /* espace entre paragraphe et formulaire */
+    margin-bottom: 25px;
 }
 
 .paragra h1 {
@@ -105,16 +115,59 @@ button:hover {
     font-size: 14px;
     color: #555;
 }
-label {
-  font-weight: bold;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px; /* espace entre icône et texte */
-  color: #333;
+
+/* ✅ Responsive design */
+@media (max-width: 768px) {
+    .ligne {
+        flex-direction: column; /* champs en colonne */
+        gap: 15px;
+    }
+
+    .ligne div {
+        width: 100%; /* tous les champs prennent la même largeur */
+    }
+
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+
+    input, select {
+        width: 100%; /* garantie même dimension */
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .paragra h1 {
+        font-size: 18px;
+    }
 }
 
-label i {
-  color: #0077ff; /* couleur des icônes */
-  font-size: 16px;
+@media (max-width: 480px) {
+    .logo .logo-im {
+        width: 45px;
+        height: 45px;
+    }
+
+    .paragra h1 {
+        font-size: 16px;
+    }
+
+    .paragra p {
+        font-size: 12px;
+    }
+
+    input, select {
+        font-size: 14px;
+        padding: 8px;
+        width: 100%; /* toujours la même largeur */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+    }
 }
