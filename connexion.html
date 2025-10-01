@@ -5,29 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <link rel="stylesheet" href="formulaire.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-   <section class="big_box">
-        <!-- Logo + titre -->
+    <section class="big_box">
         <div class="logo">
             <img src="photo du site/logo.png" alt="logo" class="logo-im">
             <h1>CHAOTIC .educ</h1>
         </div>
 
-        <!-- Titre de la section -->
         <div class="paragra">
             <h1>INSCRIPTION</h1>
             <p>Ces inscriptions sont nécessaires pour vous accéder aux formations</p>
         </div>
 
-        <!-- Formulaire Netlify -->
-        <form name="inscription" method="POST" data-netlify="true">
-            <!-- OBLIGATOIRE pour Netlify -->
-            <input type="hidden" name="form-name" value="inscription">
-
-            <!-- Ligne 1 -->
+        <form id="inscriptionForm"> 
             <div class="ligne">
                 <div>
                     <label for="nom"><i class="fa-solid fa-user"></i> NOM:</label>
@@ -43,7 +35,6 @@
                 </div>
             </div>
 
-            <!-- Ligne 2 -->
             <div class="ligne">
                 <div>
                     <label for="telephone"><i class="fa-solid fa-phone"></i> Tel:</label>
@@ -59,7 +50,6 @@
                 </div>
             </div>
 
-            <!-- Ligne 3 -->
             <div class="ligne">
                 <div>
                     <label for="niveau"><i class="fa-solid fa-graduation-cap"></i> Niveau:</label>
@@ -84,7 +74,6 @@
                 </div>
             </div>
 
-            <!-- Ligne 4 -->
             <div class="ligne">
                 <div>
                     <label for="interet"><i class="fa-solid fa-star"></i> Intérêt:</label>
@@ -105,11 +94,67 @@
                 </div>
             </div>
 
-            <!-- Bouton -->
             <div class="btn">
-                <button type="submit">ENREGISTRER</button>
+                <button type="submit" id="submitButton">ENREGISTRER</button>
             </div>
         </form>
-   </section>
+    </section>
+
+    <script>
+        // ⚠️ ÉTAPE CRUCIALE : Remplacez par l'URL de votre application Web Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx9En6_dvLIp7Sxe7eX_jjbtKlXjZSJeD3L83QDqzbw3tvkQkhrqlSsVvhIU9xp_TzX/exec'; 
+
+        const form = document.getElementById('inscriptionForm');
+        const submitButton = document.getElementById('submitButton');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Empêche l'envoi classique du formulaire (et le rechargement de la page)
+            
+            // 1. Validation des mots de passe
+            const password = document.getElementById('password').value;
+            const confirm_password = document.getElementById('confirm_password').value;
+
+            if (password !== confirm_password) {
+                alert("Erreur : Les mots de passe ne correspondent pas.");
+                return; // Arrête l'envoi
+            }
+            
+            submitButton.disabled = true; // Désactive le bouton pour éviter les doubles clics
+
+            // 2. Récupère toutes les données du formulaire
+            let requestBody = new FormData(form);
+
+            // 3. Envoie les données au script Google Apps
+            fetch(scriptURL, { method: 'POST', body: requestBody })
+                .then(response => {
+                    // Vérifie si la réponse est JSON (Apps Script retourne JSON ou texte)
+                    const contentType = response.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") !== -1) {
+                        return response.json();
+                    } else {
+                         // Gère le cas où le script retourne une erreur non JSON (souvent un message HTML d'erreur Google)
+                        throw new Error('Le script a renvoyé un contenu inattendu. Vérifiez les permissions de déploiement.');
+                    }
+                })
+                .then(data => {
+                    if (data && data.result === 'success') {
+                        alert('Inscription réussie ! Vos données ont été enregistrées sur Google Sheets.');
+                        form.reset(); // Réinitialise le formulaire
+                    } else if (data && data.result === 'error') {
+                         alert('Erreur lors de l\'enregistrement : ' + (data.message || 'Vérifiez le code Apps Script.'));
+                    } else {
+                        // Cas non géré ou erreur inattendue
+                         alert('Erreur inattendue. Veuillez vérifier le script ou l\'URL de déploiement.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur de connexion/réseau:', error);
+                    alert(`Erreur: ${error.message}`);
+                })
+                .finally(() => {
+                    submitButton.disabled = false; // Réactive le bouton
+                });
+        });
+    </script>
 </body>
 </html>
