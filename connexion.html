@@ -102,14 +102,14 @@
     </section>
 
     <script>
-        // L'URL de votre application Web Google Apps Script
+        // Votre URL Apps Script :
         const scriptURL = 'https://script.google.com/macros/s/AKfycbx9En6_dvLIp7Sxe7eX_jjbtKlXjZSJeD3L83QDqzbw3tvkQkhrqlSsVvhIU9xp_TzX/exec'; 
 
         const form = document.getElementById('inscriptionForm');
         const submitButton = document.getElementById('submitButton');
 
         form.addEventListener('submit', e => {
-            e.preventDefault(); // Empêche l'envoi classique du formulaire (et le rechargement)
+            e.preventDefault(); 
             
             // 1. Validation des mots de passe
             const password = document.getElementById('password').value;
@@ -117,37 +117,37 @@
 
             if (password !== confirm_password) {
                 alert("Erreur : Les mots de passe ne correspondent pas.");
-                return; // Arrête l'envoi
+                return; 
             }
             
             submitButton.disabled = true; // Désactive le bouton
 
-            // 2. Récupère toutes les données du formulaire
+            // 2. Récupère toutes les données
             let requestBody = new FormData(form);
 
-            // 3. Envoie les données au script Google Apps
+            // 3. Envoie les données en POST à l'URL du script
             fetch(scriptURL, { method: 'POST', body: requestBody })
                 .then(response => {
                     const contentType = response.headers.get("content-type");
                     if (contentType && contentType.indexOf("application/json") !== -1) {
                         return response.json();
                     } else {
-                        throw new Error('Le script a renvoyé un contenu inattendu. Vérifiez votre script.');
+                        throw new Error('Réponse inattendue. Vérifiez le script et le déploiement.');
                     }
                 })
                 .then(data => {
                     if (data && data.result === 'success') {
-                        alert('Inscription réussie ! Vos données ont été enregistrées sur Google Sheets.');
+                        alert('Inscription réussie ! Vos données ont été enregistrées.');
                         form.reset(); // Réinitialise le formulaire
                     } else if (data && data.result === 'error') {
-                         alert('Erreur lors de l\'enregistrement : ' + (data.message || 'Vérifiez le code Apps Script.'));
+                         alert('Erreur lors de l\'enregistrement : ' + (data.message || 'Vérifiez les en-têtes de colonnes.'));
                     } else {
-                         alert('Erreur inattendue. Veuillez vérifier le script ou l\'URL de déploiement.');
+                         alert('Erreur inattendue.');
                     }
                 })
                 .catch(error => {
                     console.error('Erreur de connexion/réseau:', error);
-                    alert(`Erreur: ${error.message}`);
+                    alert(`Erreur de soumission: ${error.message}`);
                 })
                 .finally(() => {
                     submitButton.disabled = false; // Réactive le bouton
