@@ -1,0 +1,89 @@
+:root {
+    /* Variables de Couleurs */
+    --primary-color: #00a1f7; /* Bleu exact demandé */
+    --secondary-color: #28a745; 
+    --text-color: #333;
+    --light-bg: #f8f9fa; 
+    --white-bg: #ffffff;
+    --border-color: #dee2e6;
+}
+
+/* 1. Base et Typographie */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+}
+.container {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 20px 0;
+}
+h1 { font-weight: 700; font-size: 2.5em; margin-bottom: 0.5em; }
+h2 { font-weight: 600; font-size: 2em; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 40px; }
+
+/* 2. Header (Section Héro) */
+.hero-section {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-radius: 0 0 15px 15px; 
+}
+/* ... autres styles de header/CTA inchangés ... */
+
+/* 3. Disposition en Grille (Grid) */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin-top: 40px;
+}
+/* ... Styles des cartes (card, prof-photo) inchangés ... */
+
+/* 4. Footer (Pied de Page) - SIMPLIFIÉ */
+footer {
+    background-color: var(--text-color); 
+    color: white;
+    padding: 15px 0; /* Réduction de l'espace */
+    font-size: 0.9em;
+}
+
+.footer-content {
+    /* Assure le centrage du texte de copyright */
+    text-align: center;
+    padding: 0;
+}
+
+/* 5. Icônes */
+.icon {
+    font-style: normal;
+    margin-right: 8px;
+}
+.check { color: var(--secondary-color); font-weight: 700; }
+.clock, .calendar, .world, .euro, .formateur-info .icon { color: var(--primary-color); font-weight: 700; }
+
+/* Nouvelle Icône (Instagram) - on utilise un emoji ou un caractère pour simuler l'icône sans librairie */
+.icon.instagram::before {
+    content: "📷"; /* Utilisation d'un emoji */
+    margin-right: 8px;
+    color: #c13584; /* Couleur Instagram */
+}
+.contact-info a {
+    font-weight: 600;
+}
+
+
+/* 6. Media Queries (Réactivité mobile) */
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-section {
+        padding: 40px 0;
+    }
+}

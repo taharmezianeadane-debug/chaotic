@@ -1,0 +1,233 @@
+:root {
+    /* Variables de Couleurs pour un thème cohérent */
+    --primary-color: #00a1f7; /* Bleu vif pour les CTA et accents */
+    --secondary-color: #28a745; /* Vert pour certains éléments clés */
+    --text-color: #333;
+    --light-bg: #f8f9fa; /* Arrière-plan léger pour les sections */
+    --white-bg: #ffffff;
+    --border-color: #dee2e6;
+}
+
+/* 1. Base et Typographie */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Largeur max professionnelle */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1 { font-weight: 700; font-size: 2.5em; margin-bottom: 0.5em; }
+h2 { font-weight: 600; font-size: 2em; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 40px; }
+h3 { font-weight: 600; font-size: 1.4em; }
+h4 { font-weight: 600; font-size: 1.1em; color: var(--secondary-color); margin-top: 20px; }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 10px;
+}
+
+/* 2. Header (Section Héro) */
+.hero-section {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-radius: 0 0 15px 15px; /* Bordure douce en bas */
+}
+.hero-section p {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* 3. Bouton CTA (Call to Action) */
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #1e7e34; /* Vert plus foncé au survol */
+}
+.cta-button.large {
+    font-size: 1.2em;
+    padding: 15px 40px;
+}
+
+
+/* 4. Disposition en Grille (Grid) */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales par défaut */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Cartes */
+.card {
+    background-color: var(--white-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombre douce */
+    border-left: 5px solid var(--primary-color);
+}
+.card h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 0;
+    font-size: 1.7em;
+}
+
+/* Formateur Card */
+.formateur-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.prof-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Image ronde */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 4px solid var(--primary-color);
+}
+.specialty {
+    font-style: italic;
+    color: #6c757d;
+}
+.formateur-card .quote {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-left: 4px solid var(--secondary-color);
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Avantages Card */
+.benefices-list p {
+    margin: 5px 0;
+    font-weight: 500;
+}
+.logistics-info p {
+    margin: 10px 0;
+}
+
+/* 5. Section Programme */
+.programme-section {
+    margin-top: 50px;
+}
+.module-item {
+    background-color: var(--white-bg);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s ease;
+}
+.module-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Ombre plus marquée au survol */
+}
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.module-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+}
+.hours-tag {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+.module-item ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.module-item li {
+    margin-bottom: 5px;
+}
+
+
+/* 6. Section Inscription */
+.inscription-section {
+    text-align: center;
+    background-color: var(--white-bg);
+    padding: 40px;
+    border-radius: 8px;
+    margin: 50px 0;
+    border: 2px dashed var(--primary-color);
+}
+.inscription-section p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+/* 7. Footer */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+/* 8. Icônes */
+.icon {
+    font-style: normal; /* Annule l'italic des <i> */
+    margin-right: 8px;
+    font-size: 1.1em; /* Ajuste la taille pour l'emoji */
+}
+.check { color: var(--secondary-color); font-weight: 700; }
+.clock, .calendar, .world, .euro, .formateur-info .icon { color: var(--primary-color); font-weight: 700; }
+
+/* Styles pour le lien Instagram */
+.instagram-link {
+    color: #c13584; /* Couleur rose/violette pour simuler la marque Instagram */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.instagram-link:hover {
+    color: var(--primary-color); /* Change au bleu du site au survol */
+    text-decoration: underline;
+}
+
+/* 9. Media Queries (Réactivité mobile) */
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+    .hero-section {
+        padding: 40px 0;
+    }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.7em; }
+}
