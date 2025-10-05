@@ -1,14 +1,38 @@
+/* ------------------------------------------------------------------ */
+/* --- FICHIER CSS COMPLET (math.css) - CORRECTION DORÉE FINALE ET HOVER CTA --- */
+/* ------------------------------------------------------------------ */
+
+/* --- VARIABLES GLOBALES ET FONDAMENTAUX --- */
 :root {
-    /* Variables de Couleurs */
-    --primary-color: #00a1f7; /* Bleu exact demandé */
-    --secondary-color: #28a745; 
-    --text-color: #333;
-    --light-bg: #f8f9fa; 
-    --white-bg: #ffffff;
-    --border-color: #dee2e6;
+    /* Couleurs principales (Bleu et son complément pour le Header) */
+    --primary-color: #00a1f7; /* Votre Bleu Vif */
+    --secondary-color: #409bf1; /* Bleu très foncé pour le Header */
+    --cta-color: #1cd347; /* Vert pour les boutons CTA */
+    --text-color: #121111;
+    --light-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+
+    /* Couleurs des Toggles de Ressources */
+    --toggle-main-bg: #e6f7ff; 
+    --toggle-main-hover: #cceeff; 
+
+    /* COULEURS SPÉCIFIQUES POUR LES THÈMES */
+    
+    /* Thème Math/Stat */
+    --color-math-terminal: #a3d9b4; 
+    --color-math-analyse: var(--primary-color); 
+    --color-math-proba: #ffc107; 
+    --color-math-stat: #9c27b0; 
+
+    /* Thème Sciences Islamiques */
+    --color-islamic-accent: #CC9900; /* Le Doré Ocre */
+    --color-islamic-terminal: var(--color-islamic-accent); /* 3AS - Doré */
+    --color-islamic-2as: #8BC34A; /* 2AS - Vert clair */
+    --color-islamic-1as: #FFEB3B; /* 1AS - Jaune vif */
 }
 
-/* 1. Base et Typographie */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
@@ -17,73 +41,547 @@ body {
     padding: 0;
     background-color: var(--light-bg);
 }
+
 .container {
     width: 90%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
 }
-h1 { font-weight: 700; font-size: 2.5em; margin-bottom: 0.5em; }
-h2 { font-weight: 600; font-size: 2em; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 40px; }
 
-/* 2. Header (Section Héro) */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- HEADER / HERO SECTION (Bleu) --- */
 .hero-section {
-    background-color: var(--primary-color);
+    background: var(--secondary-color);
     color: white;
     padding: 60px 0;
     text-align: center;
-    border-radius: 0 0 15px 15px; 
+    box-shadow: 0 4px 6px var(--shadow-light);
+    background-image: linear-gradient(135deg, var(--secondary-color) 0%, #004488 100%);
 }
-/* ... autres styles de header/CTA inchangés ... */
 
-/* 3. Disposition en Grille (Grid) */
+.hero-section h1 {
+    color: white;
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    font-weight: 300;
+}
+
+/* --- BOUTON CTA VERT (MODIFIÉ) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--cta-color); 
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Ajout des transitions pour la couleur et bordure */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.1s;
+    border: 2px solid var(--cta-color);
+}
+
+/* NOUVEAU: Effet de survol Doré sur les boutons CTA (Haut et Bas) */
+.cta-button:hover {
+    background-color: var(--color-islamic-accent); /* Passe au Doré Ocre */
+    border-color: var(--color-islamic-accent); /* Bordure en Doré Ocre */
+    color: var(--text-color); /* Texte passe au Noir (ou couleur de texte par défaut) */
+    transform: translateY(-2px);
+}
+
+.cta-button.large {
+    font-size: 1.1em;
+    padding: 15px 40px;
+    margin-top: 20px;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- GRILLE DE DÉTAILS (FORMATEUR & AVANTAGES) --- */
+/* ------------------------------------------------------------------ */
 .details-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1.5fr;
     gap: 30px;
     margin-top: 40px;
-}
-/* ... Styles des cartes (card, prof-photo) inchangés ... */
-
-/* 4. Footer (Pied de Page) - SIMPLIFIÉ */
-footer {
-    background-color: var(--text-color); 
-    color: white;
-    padding: 15px 0; /* Réduction de l'espace */
-    font-size: 0.9em;
+    align-items: stretch; 
 }
 
-.footer-content {
-    /* Assure le centrage du texte de copyright */
-    text-align: center;
-    padding: 0;
-}
-
-/* 5. Icônes */
-.icon {
-    font-style: normal;
-    margin-right: 8px;
-}
-.check { color: var(--secondary-color); font-weight: 700; }
-.clock, .calendar, .world, .euro, .formateur-info .icon { color: var(--primary-color); font-weight: 700; }
-
-/* Nouvelle Icône (Instagram) - on utilise un emoji ou un caractère pour simuler l'icône sans librairie */
-.icon.instagram::before {
-    content: "📷"; /* Utilisation d'un emoji */
-    margin-right: 8px;
-    color: #c13584; /* Couleur Instagram */
-}
-.contact-info a {
-    font-weight: 600;
-}
-
-
-/* 6. Media Queries (Réactivité mobile) */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .details-grid {
         grid-template-columns: 1fr;
     }
-    .hero-section {
-        padding: 40px 0;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    border-top: 4px solid var(--primary-color); 
+}
+
+/* --- CARTE FORMATEUR --- */
+.formateur-card {
+    text-align: center;
+}
+
+.formateur-info h3 {
+    margin: 10px 0 5px 0;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+.prof-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--border-color);
+}
+
+.specialty {
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.formateur-info hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.formateur-info ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.formateur-info ul li {
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-weight: 500;
+}
+
+.formateur-info ul li:last-child {
+    border-bottom: none;
+}
+
+.quote {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-left: 5px solid var(--primary-color);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.contact-info {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* --- COULEURS D'ICÔNES DE RÉSEAUX SOCIAUX --- */
+.contact-info .icon.fab.fa-instagram { color: #e1306c; } 
+.contact-info .icon.fab.fa-facebook { color: #1877f2; }
+.contact-info .icon.fab.fa-whatsapp { color: #25d366; }
+
+.instagram-link, .facebook-link, .whatsapp-link {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+/* --- CARTE AVANTAGES & LOGISTIQUE --- */
+.avantages-card h4 {
+    color: var(--primary-color);
+    margin-top: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.benefices-list p {
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.logistics-info p {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.logistics-info p:last-child {
+    border-bottom: none;
+}
+
+.logistics-info p strong {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+/* --- STYLE SPÉCIFIQUE POUR FILIÈRE CIBLÉE --- */
+.filiere-focus {
+    background-color: #f0f8ff; 
+    padding: 10px;
+    border-left: 4px solid var(--primary-color); 
+    font-weight: 600;
+    margin-bottom: 15px; 
+    border-radius: 4px;
+}
+
+.filiere-focus .icon {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+
+/* --- SECTION PROGRAMME ET MODULES --- */
+.programme-section {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.programme-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    color: var(--secondary-color);
+}
+
+.module-item {
+    background: var(--card-bg);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    /* Couleur par défaut (Maths) */
+    border-left: 6px solid var(--primary-color); 
+    box-shadow: 0 1px 5px var(--shadow-light);
+}
+
+/* CLÉ: Applique la BORDURE GAUCHE DORÉE aux modules Islamiques */
+.module-item.islamic-module {
+    border-left: 6px solid var(--color-islamic-accent);
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.module-header h3 {
+    /* Couleur par défaut (Maths) */
+    color: var(--primary-color); 
+    font-size: 1.4em;
+    flex-basis: 100%;
+    margin-bottom: 10px;
+}
+
+/* CLÉ: Applique la COULEUR DORÉE aux TITRES des modules Islamiques */
+.islamic-module .module-header h3 {
+    color: var(--color-islamic-accent);
+}
+
+@media (min-width: 600px) {
+    .module-header h3 {
+        flex-basis: auto;
+    }
+}
+
+.module-item ul {
+    list-style-type: '👉 ';
+    padding-left: 20px;
+    margin-top: 0;
+    font-style: italic;
+    color: #6c757d;
+}
+
+.module-item ul li {
+    margin-bottom: 5px;
+}
+
+/* --- TAGS (PRIX, FORMAT, DURÉE) (Inchangé) --- */
+.header-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.price-tag, .format-tag, .hours-tag, .badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.price-tag {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.format-tag.presentiel {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.format-tag.distance {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.hours-tag {
+    background-color: #e2e3e5;
+    color: #495057;
+    border: 1px solid #d6d8db;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- TOGGLES DE RESSOURCES (STYLES DE BASE) --- */
+/* ------------------------------------------------------------------ */
+
+/* Toggles Principaux (niveau Module) */
+.main-ressource-toggle {
+    background-color: var(--toggle-main-bg); 
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: 600;
+    border: 1px solid var(--primary-color); 
+    color: var(--secondary-color);
+    transition: background-color 0.2s;
+    display: block; 
+}
+
+.main-ressource-toggle:hover {
+    background-color: var(--toggle-main-hover);
+}
+
+/* Toggles Secondaires (Sous-barres) */
+.ressource-toggle-bar {
+    cursor: pointer;
+    font-weight: 500;
+    background-color: var(--light-bg); 
+    border: none;
+    border-radius: 0;
+    padding: 10px 15px; 
+    margin: 0 0 5px 0;
+    display: block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* CORRECTION CLÉ : Effet de survol, prend la couleur d'accentuation définie plus bas */
+.ressource-toggle-bar:hover {
+    background-color: var(--accent-color) !important;
+    color: white !important; 
+}
+
+/* Contenu déroulant */
+.ressource-content {
+    padding: 15px;
+    margin-top: -5px; 
+    background-color: var(--card-bg); 
+    border-radius: 0 0 4px 4px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-right: none; 
+}
+
+.sujets-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sujet-box {
+    background-color: var(--light-bg);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.sujet-box a {
+    color: var(--text-color);
+}
+
+.sujet-box:hover {
+    background-color: #e9ecef;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- THÈMES DE COULEURS SPÉCIFIQUES PAR MODULES (MATHS) --- */
+/* ------------------------------------------------------------------ */
+/* Note: Les classes sont M1, M2, M3, M4 */
+
+/* M1 (Maths Terminale) : Vert clair */
+.ressource-toggle-bar.M1-chapitre, .ressource-toggle-bar.M1-complet, .ressource-toggle-bar.M1-resume {
+    --accent-color: var(--color-math-terminal);
+    border-left: 5px solid var(--accent-color);
+}
+/* M2 (Analyse 2) : Bleu Primaire */
+.ressource-toggle-bar.M2-cours, .ressource-toggle-bar.M2-tdtp, .ressource-toggle-bar.M2-emd {
+    --accent-color: var(--color-math-analyse);
+    border-left: 5px solid var(--accent-color);
+}
+/* M3 (Probabilité) : Jaune/Orange */
+.ressource-toggle-bar.M3-cours, .ressource-toggle-bar.M3-tdtp, .ressource-toggle-bar.M3-emd {
+    --accent-color: var(--color-math-proba);
+    border-left: 5px solid var(--accent-color);
+}
+/* M4 (Statistique) : Violet */
+.ressource-toggle-bar.M4-cours, .ressource-toggle-bar.M4-tdtp, .ressource-toggle-bar.M4-emd {
+    --accent-color: var(--color-math-stat);
+    border-left: 5px solid var(--accent-color);
+}
+
+/* Bordures du contenu Maths */
+#ressource-dropdown-1-chapitre, #ressource-dropdown-1-complet, #ressource-dropdown-1-resume { border-left: 5px solid var(--color-math-terminal); }
+#ressource-dropdown-2-cours, #ressource-dropdown-2-tdtp, #ressource-dropdown-2-emd { border-left: 5px solid var(--color-math-analyse); }
+#ressource-dropdown-3-cours, #ressource-dropdown-3-tdtp, #ressource-dropdown-3-emd { border-left: 5px solid var(--color-math-proba); }
+#ressource-dropdown-4-cours, #ressource-dropdown-4-tdtp, #ressource-dropdown-4-emd { border-left: 5px solid var(--color-math-stat); }
+
+/* ------------------------------------------------------------------ */
+/* --- THÈMES DE COULEURS SPÉCIFIQUES PAR NIVEAU ISLAMIC (Doré/Vert) --- */
+/* ------------------------------------------------------------------ */
+
+/* M1 (Terminale - 3AS) : Doré Ocre */
+.ressource-toggle-bar.M1-resume, .ressource-toggle-bar.M1-sujet {
+    --accent-color: var(--color-islamic-terminal);
+    border-left: 5px solid var(--accent-color);
+}
+/* M2 (2AS) : Vert Clair */
+.ressource-toggle-bar.M2-resume, .ressource-toggle-bar.M2-sujet {
+    --accent-color: var(--color-islamic-2as);
+    border-left: 5px solid var(--accent-color);
+}
+/* M3 (1AS) : Jaune Vif */
+.ressource-toggle-bar.M3-resume, .ressource-toggle-bar.M3-sujet {
+    --accent-color: var(--color-islamic-1as);
+    border-left: 5px solid var(--accent-color);
+}
+
+/* Bordures du contenu Islamic */
+#ressource-dropdown-3AS-resume, #ressource-dropdown-3AS-sujet { border-left: 5px solid var(--color-islamic-terminal); }
+#ressource-dropdown-2AS-resume, #ressource-dropdown-2AS-sujet { border-left: 5px solid var(--color-islamic-2as); }
+#ressource-dropdown-1AS-resume, #ressource-dropdown-1AS-sujet { border-left: 5px solid var(--color-islamic-1as); }
+
+/* --- ICONOGRAPHIE ET DIVERS --- */
+.icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+    color: var(--primary-color);
+}
+
+.icon.check { color: var(--cta-color); } 
+
+.arrow {
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+/* --- VISIBILITÉ --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- SECTION INSCRIPTION FINALE --- */
+/* Je retire le hover Doré d'ici pour le laisser au bouton CTA */
+.inscription-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--primary-color); 
+    color: white;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+/* On remet le hover bleu par défaut sur le bloc d'inscription pour ne pas confondre avec le bouton */
+.inscription-section:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(0); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.inscription-section h2 {
+    color: white;
+    font-size: 2em;
+    transition: color 0.3s;
+}
+
+.inscription-section p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 0;
+    font-size: 0.9em;
+}
+
+/* --- CORRECTIONS pour l'accessibilité sur petits écrans --- */
+@media (max-width: 900px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .module-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-tags {
+        margin-top: 10px;
     }
 }

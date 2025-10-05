@@ -1,14 +1,19 @@
+/* --- VARIABLES GLOBALES ET FONDAMENTAUX MODIFIÉS --- */
 :root {
-    /* Variables de Couleurs pour un thème cohérent */
-    --primary-color: #00a1f7; /* Bleu vif pour les CTA et accents */
-    --secondary-color: #28a745; /* Vert pour certains éléments clés */
-    --text-color: #333;
-    --light-bg: #f8f9fa; /* Arrière-plan léger pour les sections */
-    --white-bg: #ffffff;
-    --border-color: #dee2e6;
+    --primary-color: #00a1f7; /* Nouveau Bleu Vif pour les accents et titres */
+    --secondary-color: #00a1f7; /* Bleu très foncé conservé pour l'arrière-plan du Header */
+    --cta-color: #1cd347; /* Vert pour les boutons CTA */
+    --text-color: #121111;
+    --light-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+
+    /* --- COULEURS POUR LES BARRES DE SUJET --- */
+    --toggle-main-bg: #e6f7ff; /* Fond légèrement bleu pour les toggles principaux */
+    --toggle-main-hover: #cceeff; /* Bleu plus clair au survol des toggles principaux */
 }
 
-/* 1. Base et Typographie */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
@@ -20,214 +25,518 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px; /* Largeur max professionnelle */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
 }
 
-h1 { font-weight: 700; font-size: 2.5em; margin-bottom: 0.5em; }
-h2 { font-weight: 600; font-size: 2em; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 40px; }
-h3 { font-weight: 600; font-size: 1.4em; }
-h4 { font-weight: 600; font-size: 1.1em; color: var(--secondary-color); margin-top: 20px; }
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-ul li {
-    margin-bottom: 10px;
+h1, h2, h3, h4 {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 0;
 }
 
-/* 2. Header (Section Héro) */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/* --- HEADER / HERO SECTION --- */
 .hero-section {
-    background-color: var(--primary-color);
+    background: var(--secondary-color);
     color: white;
     padding: 60px 0;
     text-align: center;
-    border-radius: 0 0 15px 15px; /* Bordure douce en bas */
+    box-shadow: 0 4px 6px var(--shadow-light);
+    background-image: linear-gradient(135deg, var(--secondary-color) 0%, #004488 100%);
 }
+
+.hero-section h1 {
+    color: white;
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+}
+
 .hero-section p {
     font-size: 1.2em;
+    margin-bottom: 2em;
     font-weight: 300;
 }
 
-/* 3. Bouton CTA (Call to Action) */
+/* --- BOUTON CTA VERT --- */
 .cta-button {
     display: inline-block;
-    background-color: var(--secondary-color);
+    background-color: var(--cta-color); 
     color: white;
     padding: 12px 30px;
-    text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.1s;
+    border: 2px solid var(--cta-color);
 }
+
 .cta-button:hover {
-    background-color: #1e7e34; /* Vert plus foncé au survol */
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
 }
+
 .cta-button.large {
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 15px 40px;
+    margin-top: 20px;
 }
 
-
-/* 4. Disposition en Grille (Grid) */
+/* ------------------------------------------------------------------ */
+/* --- GRILLE DE DÉTAILS (FORMATEUR & AVANTAGES) --- */
+/* ------------------------------------------------------------------ */
 .details-grid {
+    /* Assure que les colonnes ont la même hauteur (par défaut sur grid) */
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes égales par défaut */
+    grid-template-columns: 1fr 1.5fr;
     gap: 30px;
     margin-top: 40px;
+    align-items: stretch; /* Explicit for clarity, though default */
 }
 
-/* Cartes */
+@media (max-width: 900px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .card {
-    background-color: var(--white-bg);
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombre douce */
-    border-left: 5px solid var(--primary-color);
-}
-.card h2 {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-top: 0;
-    font-size: 1.7em;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    border-top: 4px solid var(--primary-color);
+    /* L'égalité de hauteur est gérée par .details-grid */
 }
 
-/* Formateur Card */
-.formateur-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* --- CARTE FORMATEUR --- */
+.formateur-card {
     text-align: center;
-    margin-bottom: 20px;
 }
+
+.formateur-info h3 {
+    margin: 10px 0 5px 0;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
 .prof-photo {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Image ronde */
+    border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px;
-    border: 4px solid var(--primary-color);
+    margin-bottom: 15px;
+    border: 4px solid var(--border-color);
 }
+
 .specialty {
     font-style: italic;
     color: #6c757d;
-}
-.formateur-card .quote {
-    background-color: var(--light-bg);
-    padding: 15px;
-    border-left: 4px solid var(--secondary-color);
-    margin-top: 20px;
-    font-style: italic;
+    margin-bottom: 20px;
 }
 
-/* Avantages Card */
+.formateur-info ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.formateur-info ul li {
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.formateur-info ul li:last-child {
+    border-bottom: none;
+}
+
+.quote {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-left: 5px solid var(--primary-color);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.contact-info {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* --- COULEURS D'ICÔNES DE RÉSEAUX SOCIAUX --- */
+
+.contact-info .icon.fab.fa-instagram { 
+    color: #e1306c; /* Rose/Violet Instagram */
+}
+
+.contact-info .icon.fab.fa-facebook { 
+    color: #1877f2; /* Bleu Facebook officiel */
+}
+
+.contact-info .icon.fab.fa-whatsapp { 
+    color: #25d366; /* Vert WhatsApp officiel */
+}
+
+.instagram-link, .facebook-link, .whatsapp-link {
+    font-weight: 600;
+    word-break: break-all; /* Pour éviter les problèmes d'affichage sur petits écrans */
+}
+
+
+/* --- CARTE AVANTAGES & LOGISTIQUE --- */
+.avantages-card h4 {
+    color: var(--primary-color);
+    margin-top: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
 .benefices-list p {
-    margin: 5px 0;
+    margin: 8px 0;
     font-weight: 500;
 }
+
 .logistics-info p {
-    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
 }
 
-/* 5. Section Programme */
+.logistics-info p strong {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+/* --- STYLE SPÉCIFIQUE POUR FILIÈRE CIBLÉE --- */
+.filiere-focus {
+    background-color: #f0f8ff; /* Bleu très léger pour le fond */
+    padding: 10px;
+    border-left: 4px solid var(--primary-color); /* Bordure bleue pour l'attention */
+    font-weight: 600;
+    margin-bottom: 15px; /* Sépare de l'élément suivant */
+    border-radius: 4px;
+}
+
+.filiere-focus .icon {
+    color: var(--primary-color); /* Assurer la couleur de l'icône */
+    margin-right: 5px;
+}
+
+
+/* --- SECTION PROGRAMME ET MODULES --- */
 .programme-section {
     margin-top: 50px;
+    padding-bottom: 50px;
 }
+
+.programme-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    color: var(--secondary-color);
+}
+
 .module-item {
-    background-color: var(--white-bg);
-    padding: 20px;
-    margin-bottom: 15px;
+    background: var(--card-bg);
+    padding: 25px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
-    transition: box-shadow 0.3s ease;
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 1px 5px var(--shadow-light);
 }
-.module-item:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Ombre plus marquée au survol */
-}
+
 .module-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px dashed var(--border-color);
-    padding-bottom: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.module-header h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    flex-basis: 100%;
     margin-bottom: 10px;
 }
-.module-header h3 {
-    margin: 0;
-    color: var(--primary-color);
+
+@media (min-width: 600px) {
+    .module-header h3 {
+        flex-basis: auto;
+    }
 }
-.hours-tag {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: 600;
-}
+
 .module-item ul {
-    list-style: disc;
+    list-style-type: '👉 ';
     padding-left: 20px;
+    margin-top: 0;
+    font-style: italic;
+    color: #6c757d;
 }
-.module-item li {
+
+.module-item ul li {
     margin-bottom: 5px;
 }
 
+/* --- TAGS (PRIX, FORMAT, DURÉE) --- */
+.header-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
-/* 6. Section Inscription */
+.price-tag, .format-tag, .hours-tag, .badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.price-tag {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.format-tag.presentiel {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.format-tag.distance {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.hours-tag {
+    background-color: #e2e3e5;
+    color: #495057;
+    border: 1px solid #d6d8db;
+}
+
+.badge {
+    background-color: var(--cta-color);
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    margin-left: 5px;
+    border: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- TOGGLES DE RESSOURCES (STYLES DE BASE) --- */
+/* ------------------------------------------------------------------ */
+
+/* Toggles Principaux (niveau Module) */
+.main-ressource-toggle {
+    background-color: var(--toggle-main-bg); 
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: 600;
+    border: 1px solid var(--primary-color); 
+    color: var(--secondary-color);
+    transition: background-color 0.2s;
+    display: block; 
+}
+
+.main-ressource-toggle:hover {
+    background-color: var(--toggle-main-hover);
+}
+
+/* Toggles Secondaires (Sous-barres) */
+.ressource-toggle-bar {
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    background-color: var(--light-bg); 
+    border: none;
+    border-radius: 0;
+    padding: 10px 15px; 
+    margin: 0 0 5px 0;
+    display: block;
+}
+
+/* Contenu déroulant */
+.main-ressource-content {
+    padding: 10px 0;
+}
+
+.ressource-content {
+    padding: 15px;
+    margin-top: -5px; 
+    background-color: var(--card-bg); 
+    border-radius: 0 0 4px 4px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-right: none; 
+}
+
+.sujets-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sujet-box {
+    background-color: var(--light-bg);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.sujet-box a {
+    color: var(--text-color);
+}
+
+.sujet-box:hover {
+    background-color: #e9ecef;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- THÈMES DE COULEURS SPÉCIFIQUES PAR MODULE POUR LES SOUS-BARRES --- */
+/* ------------------------------------------------------------------ */
+
+/* Définition des couleurs d'accentuation pour chaque module */
+.ressource-toggle-bar.M1-chapitre, 
+.ressource-toggle-bar.M1-complet, 
+.ressource-toggle-bar.M1-resume {
+    --accent-color: #a3d9b4; /* Vert */
+    border-left: 5px solid var(--accent-color);
+}
+.ressource-toggle-bar.M2-cours, 
+.ressource-toggle-bar.M2-tdtp, 
+.ressource-toggle-bar.M2-emd {
+    --accent-color: var(--primary-color); /* Bleu */
+    border-left: 5px solid var(--accent-color);
+}
+.ressource-toggle-bar.M3-cours, 
+.ressource-toggle-bar.M3-tdtp, 
+.ressource-toggle-bar.M3-emd {
+    --accent-color: #ffc107; /* Jaune/Orange */
+    border-left: 5px solid var(--accent-color);
+}
+.ressource-toggle-bar.M4-cours, 
+.ressource-toggle-bar.M4-tdtp, 
+.ressource-toggle-bar.M4-emd {
+    --accent-color: #9c27b0; /* Violet */
+    border-left: 5px solid var(--accent-color);
+}
+
+/* Effet au survol des sous-barres : met en évidence la couleur du module */
+.ressource-toggle-bar:hover {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+}
+
+
+/* Application de la couleur d'accentuation pour la bordure du contenu */
+#ressource-dropdown-1-chapitre, #ressource-dropdown-1-complet, #ressource-dropdown-1-resume { 
+    border-left: 5px solid #a3d9b4; /* M1 Vert */
+}
+#ressource-dropdown-2-cours, #ressource-dropdown-2-tdtp, #ressource-dropdown-2-emd { 
+    border-left: 5px solid var(--primary-color); /* M2 Bleu */
+}
+#ressource-dropdown-3-cours, #ressource-dropdown-3-tdtp, #ressource-dropdown-3-emd { 
+    border-left: 5px solid #ffc107; /* M3 Jaune/Orange */
+}
+#ressource-dropdown-4-cours, #ressource-dropdown-4-tdtp, #ressource-dropdown-4-emd { 
+    border-left: 5px solid #9c27b0; /* M4 Violet */
+}
+
+
+/* ------------------------------------------------------------------ */
+/* --- ICONOGRAPHIE ET DIVERS --- */
+/* ------------------------------------------------------------------ */
+.icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+    color: var(--primary-color);
+}
+
+.icon.check { color: var(--cta-color); } 
+
+.arrow {
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+/* --- VISIBILITÉ --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- SECTION INSCRIPTION FINALE --- */
 .inscription-section {
     text-align: center;
-    background-color: var(--white-bg);
-    padding: 40px;
+    padding: 40px 20px;
+    background-color: var(--primary-color); 
+    color: white;
+    margin-top: 40px;
     border-radius: 8px;
-    margin: 50px 0;
-    border: 2px dashed var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+.inscription-section h2 {
+    color: white;
+    font-size: 2em;
+}
+
 .inscription-section p {
     font-size: 1.1em;
     margin-bottom: 25px;
 }
 
-/* 7. Footer */
+/* --- FOOTER --- */
 footer {
-    background-color: var(--text-color);
+    background-color: #343a40;
     color: white;
     text-align: center;
     padding: 15px 0;
+    margin-top: 0;
     font-size: 0.9em;
 }
 
-/* 8. Icônes */
-.icon {
-    font-style: normal; /* Annule l'italic des <i> */
-    margin-right: 8px;
-    font-size: 1.1em; /* Ajuste la taille pour l'emoji */
-}
-.check { color: var(--secondary-color); font-weight: 700; }
-.clock, .calendar, .world, .euro, .formateur-info .icon { color: var(--primary-color); font-weight: 700; }
-
-/* Styles pour le lien Instagram */
-.instagram-link {
-    color: #c13584; /* Couleur rose/violette pour simuler la marque Instagram */
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-.instagram-link:hover {
-    color: var(--primary-color); /* Change au bleu du site au survol */
-    text-decoration: underline;
-}
-
-/* 9. Media Queries (Réactivité mobile) */
-@media (max-width: 768px) {
-    .details-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+/* --- CORRECTIONS pour l'accessibilité sur petits écrans --- */
+@media (max-width: 600px) {
+    .hero-section h1 {
+        font-size: 2em;
     }
-    .hero-section {
-        padding: 40px 0;
+
+    .hero-section p {
+        font-size: 1em;
     }
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.7em; }
+
+    .container {
+        width: 95%;
+    }
+
+    .module-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-tags {
+        margin-top: 10px;
+    }
 }
