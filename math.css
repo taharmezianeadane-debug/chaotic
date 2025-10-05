@@ -517,26 +517,144 @@ footer {
     font-size: 0.9em;
 }
 
-/* --- CORRECTIONS pour l'accessibilité sur petits écrans --- */
+/* --- CORRECTIONS pour l'accessibilité sur petits écrans (max-width: 600px) --- */
 @media (max-width: 600px) {
+    /* 1. Conteneur principal */
+    .container {
+        /* Augmente l'espace sur les côtés pour maximiser la largeur utilisable */
+        width: 95%; 
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* 2. Section Héro (Titre principal) */
     .hero-section h1 {
-        font-size: 2em;
+        /* Augmente la taille de police pour qu'elle ne soit pas minuscule */
+        font-size: 1.8em; 
+        line-height: 1.3; /* Améliore la lisibilité du grand titre */
+        text-align: center;
     }
 
     .hero-section p {
-        font-size: 1em;
+        /* Assure une taille lisible pour le sous-titre */
+        font-size: 1em; 
+        text-align: center;
     }
 
-    .container {
-        width: 95%;
+    .cta-button {
+        /* Centre le bouton */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; /* Le rend moins large que le bloc parent pour ne pas être écrasé */
+        text-align: center;
+        padding: 12px;
     }
 
+    /* 3. Disposition principale des cartes (Formateur & Avantages) */
+    .details-grid {
+        /* Passage de la grille à une disposition simple en colonne */
+        grid-template-columns: 1fr; 
+        gap: 20px; /* Espace entre les deux cartes */
+    }
+
+    .card {
+        padding: 20px 15px; /* Réduit le padding interne pour gagner de la place */
+        /* S'assurer que les cartes utilisent toute la largeur */
+        width: 100%;
+        box-sizing: border-box; 
+    }
+
+    /* 4. Carte Formateur (Ajustements spécifiques) */
+    .formateur-info {
+        /* Supprime toute disposition complexe pour forcer l'alignement vertical */
+        display: block; 
+        text-align: center;
+    }
+
+    .prof-photo {
+        /* Centre la photo et la rend plus petite pour le mobile */
+        width: 100px; 
+        height: 100px;
+        margin: 0 auto 10px auto; 
+        float: none; /* Annule l'éventuel "float" pour le centrage */
+    }
+
+    .formateur-info h3, 
+    .formateur-info .specialty,
+    .formateur-info h4 {
+        text-align: center; /* Centre les titres et la spécialité */
+    }
+    
+    .contact-info {
+        text-align: left; /* Pour conserver une lisibilité des liens */
+        margin-top: 10px;
+    }
+    
+    /* 5. Liste d'informations et bénéfices (Pour conserver la clarté) */
+    .formateur-card ul,
+    .benefices-list p,
+    .logistics-info p {
+        text-align: left;
+        font-size: 0.95em;
+    }
+    
+    .formateur-card ul li {
+        margin-bottom: 5px;
+    }
+    
+    /* 6. Programme et Modules de Formation */
+    .module-item {
+        padding: 15px;
+    }
+    
     .module-header {
+        /* Empile les éléments du header (titre et tags) verticalement */
         flex-direction: column;
         align-items: flex-start;
     }
 
+    .module-header h3 {
+        /* Assure que le titre du module est clairement visible */
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
     .header-tags {
-        margin-top: 10px;
+        /* Les balises doivent s'afficher en colonne ou être gérables */
+        display: flex;
+        flex-direction: row; /* Essaye d'abord une ligne */
+        flex-wrap: wrap; /* Si trop large, passe à la ligne */
+        gap: 5px; /* Espace entre les balises */
+        margin-top: 5px;
+        font-size: 0.85em; /* Réduit un peu la taille des tags */
+    }
+    
+    /* Empilement des liens de ressources */
+    .sujets-list {
+        /* Force l'affichage de la liste en colonne et non pas en ligne si un flex était appliqué */
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .sujet-box {
+        /* Rends chaque lien de ressource plus facile à cliquer */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        font-size: 0.9em;
+    }
+    
+    .main-ressource-toggle,
+    .ressource-toggle-bar {
+        font-size: 1em; /* Taille lisible pour le bouton d'ouverture */
+        padding: 10px 5px;
+    }
+
+    /* 7. Footer */
+    footer .container {
+        text-align: center;
+        font-size: 0.8em;
     }
 }

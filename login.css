@@ -15,8 +15,17 @@ body {
     left: 0;
     width: 100%;
     gap: 350px;
-    backdrop-filter: blur(30px);
-    box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+    /* --- MODIFICATIONS CLÉS CI-DESSOUS --- */
+    /* Dégradé linéaire : commence par le bleu #00a1f7 et va vers le transparent */
+    /* background: linear-gradient(to bottom, #00a1f7, transparent); */
+    /* Ou, si vous voulez un dégradé avec une certaine opacité pour le bleu au début et devenir plus transparent */
+    background: linear-gradient(to bottom, rgba(0, 161, 247, 0.9), rgba(0, 161, 247, 0.5), transparent);
+    
+    /* Si vous voulez que la zone derrière le dégradé ait un flou pour voir légèrement le contenu derrière */
+    backdrop-filter: blur(8px); /* Réactiver un léger flou si vous aimez l'effet */
+    /* --- FIN MODIFICATIONS CLÉS --- */
+
+    box-shadow: 0px 0px 30px rgba(227,228,237,0.37); /* Garder l'ombre pour la profondeur */
     font-family: "Courier New", Courier, monospace;
 }
 .logo{
